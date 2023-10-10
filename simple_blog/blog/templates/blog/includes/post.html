@@ -1,0 +1,15 @@
+{% load static %}
+
+<li>
+    <article class="post">
+        <a href="{% url "post-detail-page" post.slug %}">
+            <img src="{% static "blog/images/"|add:post.image %}" alt="{{ post.title }}"/><!--blog/images/mountains.jpg"|add:post.image %} - static url with dynamic variables -->
+            <div class="post_content">
+                <h3>{{ post.title }}</h3> <!--Access a field on an object in dictionaries-->
+                <p>
+                    {{post.excerpt}}
+                </p>
+            </div>
+        </a>
+    </article>
+</li>
