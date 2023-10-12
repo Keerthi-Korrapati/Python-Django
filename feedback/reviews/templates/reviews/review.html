@@ -1,15 +1,8 @@
+{% extends "reviews/base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Review</title>
-    <link rel="stylesheet" href="{% static "reviews/styles.css" %}">
-</head>
-<body>
+{% block title %}Your Review{% endblock  %} 
+{% block content %}
     <form action="/" method="POST">
         {% csrf_token %}
         {% for field in form %}
@@ -20,16 +13,11 @@
         </div>
         {% endfor %}
         <button type="submit">Send</button>
-        <!--{% if has_error %}
-            <p>This form is invalid - please update username!</p>
-        {% endif %}-->
-        
-        <!--<label for="username">Your name</label> 
-        <input id="username" name="username" type="text">-->
         
     </form>
-</body>
-</html>
+{% endblock  %}
+
+
 
 <!--
 <div class="form-control {% if form.user_name.errors %}errors{% endif %}">
@@ -48,3 +36,34 @@
     {{ form.rating }}
     {{ form.rating.errors}}  
 </div>-->
+
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Review</title>
+    <link rel="stylesheet" href="{% static "reviews/styles.css" %}">
+</head>
+<body>
+    <form action="/" method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-control {% if form.user_name.errors %}errors{% endif %}">
+            {{ field.label_tag }}
+            {{ field }}
+            {{ field.errors}}
+        </div>
+        {% endfor %}
+        <button type="submit">Send</button>-->
+        <!--{% if has_error %}
+            <p>This form is invalid - please update username!</p>
+        {% endif %}-->
+        
+        <!--<label for="username">Your name</label> 
+        <input id="username" name="username" type="text">-->
+<!--        
+    </form>
+</body>
+</html>-->

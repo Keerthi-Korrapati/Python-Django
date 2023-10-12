@@ -8,5 +8,3 @@ class Review(models.Model):
     rating = models.IntegerField()
     # owner_comment = models.TextField()
 
-
-
